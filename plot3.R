@@ -21,7 +21,6 @@ plot3 <- function()
          #, inset = 0.02
          , cex = 0.8
          )
-  #save plot to a PNG file
-  #dev.copy(png, file = "plot3.png")
+
   dev.off()
 }
