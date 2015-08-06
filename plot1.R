@@ -13,7 +13,6 @@ plot1 <- function()
        , xlab = "Global Active Power (Kilowatts)"
        , main = "Global Active Power"
        )
-  #save plot to a PNG file
-  #dev.copy(png, file = "plot1.png")
+
   dev.off()
 }
