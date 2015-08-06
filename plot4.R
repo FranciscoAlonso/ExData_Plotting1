@@ -27,7 +27,6 @@ plot4 <- function()
   
   #plot 4.4
   plot(twodays$Date, twodays$Global_reactive_power, type = "l", xlab = "datetime", ylab = "Global_reactive_power")
-  #save plot to a PNG file
-  #dev.copy(png, file = "plot4.png")
+
   dev.off()
 }
