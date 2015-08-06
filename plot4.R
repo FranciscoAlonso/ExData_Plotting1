@@ -5,6 +5,7 @@ plot4 <- function()
   names(twodays) <- names(header)
   
   twodays$Date <- as.POSIXct(paste(twodays$Date, twodays$Time), format="%e/%m/%Y %H:%M:%S")
+  png("plot4.png") #create the png graph device
   par(mfrow = c(2,2)) #set rows and columns for the graphs
   
   #plot 4.1
@@ -17,11 +18,16 @@ plot4 <- function()
   plot(twodays$Date, twodays$Sub_metering_1, type = "l", ylab = "Energy sub metering", xlab = "")
   lines(twodays$Date, twodays$Sub_metering_2, col = "red")
   lines(twodays$Date, twodays$Sub_metering_3, col = "blue")
-  legend("topright", lty = c(1, 1, 1), pch = c(NA, NA, NA), col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+  legend("topright"
+         , lty = c(1, 1, 1)
+         , pch = c(NA, NA, NA)
+         , col = c("black", "red", "blue")
+         , legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3")
+         )
   
   #plot 4.4
   plot(twodays$Date, twodays$Global_reactive_power, type = "l", xlab = "datetime", ylab = "Global_reactive_power")
   #save plot to a PNG file
-  dev.copy(png, file = "plot4.png")
+  #dev.copy(png, file = "plot4.png")
   dev.off()
 }

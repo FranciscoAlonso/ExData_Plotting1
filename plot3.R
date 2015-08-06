@@ -5,15 +5,23 @@ plot3 <- function()
   names(twodays) <- names(header)
   
   twodays$Date <- as.POSIXct(paste(twodays$Date, twodays$Time), format="%e/%m/%Y %H:%M:%S")
-
+  #create the png graph device
+  png("plot3.png")
+  
   #plot 3
   plot(twodays$Date, twodays$Sub_metering_1, type = "l", ylab = "Energy sub metering", xlab = "")
   #add two more lines
   lines(twodays$Date, twodays$Sub_metering_2, col = "red")
   lines(twodays$Date, twodays$Sub_metering_3, col = "blue")
   #add the legend 
-  legend("topright", lty = c(1, 1, 1), pch = c(NA, NA, NA), col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+  legend("topright"
+         , legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3")
+         , col = c("black", "red", "blue")
+         , lty = c(1, 1, 1)
+         #, inset = 0.02
+         , cex = 0.8
+         )
   #save plot to a PNG file
-  dev.copy(png, file = "plot3.png")
+  #dev.copy(png, file = "plot3.png")
   dev.off()
 }

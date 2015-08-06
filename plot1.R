@@ -7,12 +7,13 @@ plot1 <- function()
   twodays$Date <- strptime(as.character(twodays$Date), format = "%e/%m/%Y")
   
   #plot 1
+  png("plot1.png") #create the png graph device
   hist(twodays$Global_active_power
        , col = "red"
        , xlab = "Global Active Power (Kilowatts)"
        , main = "Global Active Power"
        )
   #save plot to a PNG file
-  dev.copy(png, file = "plot1.png")
+  #dev.copy(png, file = "plot1.png")
   dev.off()
 }

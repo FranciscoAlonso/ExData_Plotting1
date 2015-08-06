@@ -6,10 +6,10 @@ plot2 <- function()
   
   #get the date and time together
   twodays$Date <- as.POSIXct(paste(twodays$Date, twodays$Time), format="%e/%m/%Y %H:%M:%S")
-  
+  #create the png graph device
+  png("plot2.png")
   #plot 2
-  plot(twodays$Date, twodays$Global_active_power, type = "l", xlab = "", ylab = "Global Active Power")
-  #save plot to a PNG file
-  dev.copy(png, file = "plot2.png")
+  plot(twodays$Date, twodays$Global_active_power, type = "l", xlab = "", ylab = "Global Active Power (kilowatts)")
+
   dev.off()
 }
